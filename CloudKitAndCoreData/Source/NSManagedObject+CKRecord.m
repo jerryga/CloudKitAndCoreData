@@ -11,8 +11,6 @@
 #import <Foundation/Foundation.h>
 #import "StoreRecord.h"
 #import "CKRecord+NSManagedObject.h"
-#import "NSDate+Utilities.h"
-#import <GZIP/GZIP.h>
 
 @implementation NSManagedObject (CKRecord)
 
@@ -121,7 +119,7 @@
     
     CKRecord *ckRecord;
     CKRecordID *ckRecordID = [self ckRecordID];
-    ckRecord = [[CKRecord alloc] initWithRecordType:[self recordType] recordID:ckRecordID];
+    ckRecord = [[CKRecord alloc] initWithRecordType:[self ASA_recordType] recordID:ckRecordID];
     
     if (keys) {
         
@@ -134,7 +132,6 @@
             id assetValue = [self valueForKey:attributeDescription.name];
             if (assetValue) {
                 NSData *data = [NSKeyedArchiver archivedDataWithRootObject:assetValue];
-                data = [data gzippedData];
                 NSString *temp = [self tempAssetFilePath];
                [data writeToFile:temp atomically:NO];
                 
@@ -154,8 +151,8 @@
         
         if (parentObject) {
             NSLog(@"xxxxx %@",parentObject.recordName);
-            CKRecordID *parentRecordID = [[CKRecordID alloc] initWithRecordName:[parentObject recordName] zoneID:[self JC_recordZoneID]];
-            CKRecord *parentRecord = [[CKRecord alloc] initWithRecordType:[parentObject recordType] recordID:parentRecordID];
+            CKRecordID *parentRecordID = [[CKRecordID alloc] initWithRecordName:[parentObject recordName] zoneID:[self recordZoneID]];
+            CKRecord *parentRecord = [[CKRecord alloc] initWithRecordType:[parentObject ASA_recordType] recordID:parentRecordID];
             CKReference *reference = [[CKReference alloc] initWithRecord:parentRecord action:CKReferenceActionDeleteSelf];
             ckRecord[CKReferenceKey] = reference;
         }
@@ -183,7 +180,7 @@
 - (void)autoSetRecordID {
     NSString *uuid = [NSUUID UUID].UUIDString;
     self.recordName = [NSString stringWithFormat:@"%@.%@",NSStringFromClass([self class]),uuid];
-    CKRecordID *recordID = [[CKRecordID alloc] initWithRecordName:self.recordName zoneID:[self JC_recordZoneID]];
+    CKRecordID *recordID = [[CKRecordID alloc] initWithRecordName:self.recordName zoneID:[self recordZoneID]];
     self.recordIDData = [NSKeyedArchiver archivedDataWithRootObject:recordID];
 }
 
@@ -194,20 +191,20 @@
     return self.recordIDData;
 }
 
-- (NSString *)recordType {
+- (NSString *)ASA_recordType {
     return NSStringFromClass([self class]);
 }
 
-- (NSString *)zoneName {
-    return  [NSString stringWithFormat:@"%@_zone",[self recordType]];
+- (NSString *)ASA_zoneName {
+    return  [NSString stringWithFormat:@"%@_zone",[self ASA_recordType]];
 }
 
-- (CKRecordZoneID *)JC_recordZoneID {
-    return [[CKRecordZoneID alloc] initWithZoneName:[self zoneName] ownerName:CKCurrentUserDefaultName];
+- (CKRecordZoneID *)ASA_recordZoneID {
+    return [[CKRecordZoneID alloc] initWithZoneName:[self ASA_zoneName] ownerName:CKOwnerDefaultName];
 }
 
-- (CKRecordZone *)JC_recordZone {
-    return [[CKRecordZone alloc] initWithZoneID:[self JC_recordZoneID]];
+- (CKRecordZone *)ASA_recordZone {
+    return [[CKRecordZone alloc] initWithZoneID:[self ASA_recordZoneID]];
 }
 
 @end

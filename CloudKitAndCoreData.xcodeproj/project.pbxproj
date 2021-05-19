@@ -14,6 +14,10 @@
 		6EFE4DD52654F5AE002A849B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFE4DD42654F5AE002A849B /* Assets.xcassets */; };
 		6EFE4DD82654F5AE002A849B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFE4DD62654F5AE002A849B /* LaunchScreen.storyboard */; };
 		6EFE4DDB2654F5AE002A849B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE4DDA2654F5AE002A849B /* main.m */; };
+		6EFE4DEC2654F5DE002A849B /* NSEntityDescription+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE4DE32654F5DD002A849B /* NSEntityDescription+Helpers.m */; };
+		6EFE4DED2654F5DE002A849B /* CKRecord+NSManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE4DE52654F5DE002A849B /* CKRecord+NSManagedObject.m */; };
+		6EFE4DEE2654F5DE002A849B /* StoreRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE4DE62654F5DE002A849B /* StoreRecord.m */; };
+		6EFE4DEF2654F5DE002A849B /* NSManagedObject+CKRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EFE4DE82654F5DE002A849B /* NSManagedObject+CKRecord.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,15 @@
 		6EFE4DD72654F5AE002A849B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EFE4DD92654F5AE002A849B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EFE4DDA2654F5AE002A849B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EFE4DE32654F5DD002A849B /* NSEntityDescription+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+Helpers.m"; sourceTree = "<group>"; };
+		6EFE4DE42654F5DE002A849B /* NSEntityDescription+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+Helpers.h"; sourceTree = "<group>"; };
+		6EFE4DE52654F5DE002A849B /* CKRecord+NSManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CKRecord+NSManagedObject.m"; sourceTree = "<group>"; };
+		6EFE4DE62654F5DE002A849B /* StoreRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreRecord.m; sourceTree = "<group>"; };
+		6EFE4DE72654F5DE002A849B /* CloudKitManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudKitManagedObject.h; sourceTree = "<group>"; };
+		6EFE4DE82654F5DE002A849B /* NSManagedObject+CKRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CKRecord.m"; sourceTree = "<group>"; };
+		6EFE4DE92654F5DE002A849B /* NSManagedObject+CKRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CKRecord.h"; sourceTree = "<group>"; };
+		6EFE4DEA2654F5DE002A849B /* StoreRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreRecord.h; sourceTree = "<group>"; };
+		6EFE4DEB2654F5DE002A849B /* CKRecord+NSManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CKRecord+NSManagedObject.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +74,7 @@
 		6EFE4DC72654F5AC002A849B /* CloudKitAndCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				6EFE4DE22654F5D6002A849B /* Source */,
 				6EFE4DC82654F5AC002A849B /* AppDelegate.h */,
 				6EFE4DC92654F5AC002A849B /* AppDelegate.m */,
 				6EFE4DCB2654F5AC002A849B /* SceneDelegate.h */,
@@ -74,6 +88,22 @@
 				6EFE4DDA2654F5AE002A849B /* main.m */,
 			);
 			path = CloudKitAndCoreData;
+			sourceTree = "<group>";
+		};
+		6EFE4DE22654F5D6002A849B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6EFE4DEB2654F5DE002A849B /* CKRecord+NSManagedObject.h */,
+				6EFE4DE52654F5DE002A849B /* CKRecord+NSManagedObject.m */,
+				6EFE4DE72654F5DE002A849B /* CloudKitManagedObject.h */,
+				6EFE4DE42654F5DE002A849B /* NSEntityDescription+Helpers.h */,
+				6EFE4DE32654F5DD002A849B /* NSEntityDescription+Helpers.m */,
+				6EFE4DE92654F5DE002A849B /* NSManagedObject+CKRecord.h */,
+				6EFE4DE82654F5DE002A849B /* NSManagedObject+CKRecord.m */,
+				6EFE4DEA2654F5DE002A849B /* StoreRecord.h */,
+				6EFE4DE62654F5DE002A849B /* StoreRecord.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFE4DED2654F5DE002A849B /* CKRecord+NSManagedObject.m in Sources */,
 				6EFE4DD02654F5AC002A849B /* ViewController.m in Sources */,
+				6EFE4DEF2654F5DE002A849B /* NSManagedObject+CKRecord.m in Sources */,
 				6EFE4DCA2654F5AC002A849B /* AppDelegate.m in Sources */,
+				6EFE4DEC2654F5DE002A849B /* NSEntityDescription+Helpers.m in Sources */,
 				6EFE4DDB2654F5AE002A849B /* main.m in Sources */,
+				6EFE4DEE2654F5DE002A849B /* StoreRecord.m in Sources */,
 				6EFE4DCD2654F5AC002A849B /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

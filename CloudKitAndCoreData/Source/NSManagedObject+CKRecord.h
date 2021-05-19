@@ -12,7 +12,7 @@
 
 @interface NSManagedObject (CKRecord)<CloudKitManagedObject>
 
-- (CKRecordZoneID *)JC_recordZoneID ;
-- (CKRecordZone *)JC_recordZone ;
+- (CKRecordZoneID *)recordZoneID ;
+- (CKRecordZone *)recordZone ;
 - (CKRecord *)createOrUpdateCKRecord:(NSArray *)keys assetKey:(NSString *)assetKey withParent:(NSManagedObject *)parentObject;
 @end
